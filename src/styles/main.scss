@@ -1,0 +1,213 @@
+/*-------------------------------------------*/
+      /* Responsive Web Design  */ 
+      
+/*
+  # Developed with the Mobile First methodology and then for desktop.
+  # Contains scrolls to adapt the view easiest. 
+
+*/
+
+/*-------------------------------------------*/
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+        background-color: #ffffff;	
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1em;
+        background-image: url("../assets/bg/simple.jpg");
+        background-size: cover;
+    }
+    
+    .textInfo {
+      text-align: justify;
+      font-size: 1vw;
+      width: 13vw;
+      margin: 1vw 0 0 0.2vw;
+    }
+    
+    .menu {
+        top: 0.5vh;
+        padding-bottom: 0vh;
+        font-size: 1.2vw;
+        display: inline-block;
+        background: #efeff0;
+        box-shadow: 0vw 1vw 2vw 0vw rgba(0,0,0,0.3);
+        color: white;
+        text-shadow: 2px 2px 4px #000000;
+    
+    }
+
+
+    .game-container {
+        position: absolute;
+        width: 100%;
+        left: 16.5vw;
+        top: 17mm; 
+        height: 85vh;
+        display: grid;
+        --grid2: calc((100% - 1px) / 2);
+        --grid4: calc((100% - 2px) / 4);
+        --grid6: calc((100% - 5px) / 6);
+        --grid8: calc((100% - 7px) / 8);
+        
+        grid-template-columns: 100%;
+
+        @media  screen and (min-width: 480px)  {
+          grid-template-columns: var(--grid2) var(--grid2);
+          }
+        @media  screen and (min-width: 768px)  {
+          grid-template-columns: var(--grid4) var(--grid4) var(--grid4) var(--grid4);
+          }
+        @media  screen and (min-width: 1200px)  {
+          grid-template-columns: var(--grid6) var(--grid6) var(--grid6) var(--grid6) var(--grid6) var(--grid6) ;
+          }
+        @media  screen and (min-width: 1400px)  {
+        grid-template-columns: var(--grid8) var(--grid8) var(--grid8) var(--grid8) var(--grid8) var(--grid8) var(--grid8) var(--grid8);
+        }
+        grid-template-rows: auto ;
+        overflow: auto;
+        
+    }
+    
+    .containerMenu {
+        top: 2vh; 
+        height: 80vh;
+        display: grid;
+        grid-template-columns: 4vw 4vw;
+        grid-gap: 0.5vw;
+        --grid2: calc((100% - 85%) / 2);
+   
+        grid-template-columns: 100%;
+        
+        @media  screen and (min-width: 768px)  {
+          grid-template-columns: var(--grid2) var(--grid2);
+          }
+    }
+
+    .category{
+      position:fixed;
+      left: 1vw; 
+      top: 11vh; 
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdownButton {
+      background-color: #5c5c5c;
+      color: white;
+      height: 3vh;
+      width: 6vw;
+      font-size: 1vw;
+      border: none;
+      cursor: pointer;
+      border-radius: 1vw;
+    } 
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #ffffff;
+      width: 7vw ;
+      box-shadow: 0vw 1.5vw 2vw 0vw rgba(0,0,0,0.2);
+      list-style-type: none; 
+      left: 0;
+      padding: 0;
+      margin-left: 0.5vw;
+      z-index: 1;
+    }
+
+    .dropdown-content li {
+      color: black;
+      text-decoration: none;
+      display: block;
+      margin: 0.3vw 0vw 0vw 0vw;
+      font-size: 0.8vw;
+    }
+
+    .dropdown-content li:hover {background-color: #c6c7c6}
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #726b6b;
+    }
+
+    .footer {
+        position: fixed;
+        height: 1.5vw;
+        bottom: 0;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 0.5vw;
+        border-top: 2px solid rgb(87, 83, 83);
+        background: grey;
+        color: white;
+        text-shadow: 2px 2px 4px #000000;
+        
+        @media  screen and (min-width: 768px)  {
+          height: 2vh;
+          }
+        @media  screen and (min-width: 1700px)  {
+           height: 2vh;
+          }      
+      }
+       
+/*------------- Columns control ------------**/
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+@media  screen and (min-width: 400px)  {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+@media screen and (min-width: 1100px) {
+  /* For desktop normal screem: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+@media screen and (min-width: 1700px)  {
+  /* For desktop: */
+  .col-b-1 {width: 8.33%;}
+  .col-b-2 {width: 16.66%;}
+  .col-b-3 {width: 25%;}
+  .col-b-4 {width: 33.33%;}
+  .col-b-5 {width: 41.66%;}
+  .col-b-6 {width: 50%;}
+  .col-b-7 {width: 58.33%;}
+  .col-b-8 {width: 66.66%;}
+  .col-b-9 {width: 75%;}
+  .col-b-10 {width: 83.33%;}
+  .col-b-11 {width: 91.66%;}
+  .col-b-12 {width: 100%;}
+}
+
+/*--------------------------------------------*/
