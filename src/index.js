@@ -5,23 +5,25 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react'
 import LoginContainer from './components/Login';
+import Game from './components/Game';
 import App from './App'
 import { Provider } from 'react-redux';
-import store  from './store/index';
-
+import { store, persistor } from './store/index';
 
 render(
   <Provider store={store}>
-   
-    <BrowserRouter>
-      <Routes>
-      <Route exact path="/" element={ <LoginContainer />} />
-        <Route path="*" element={ <LoginContainer /> } />
-        <Route exact path="/home" element={ <App />} />
-      </Routes>
-    </BrowserRouter>
-
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter>
+        <Routes>
+        <Route exact path="/" element={ <LoginContainer />} />
+          <Route path="*" element={ <LoginContainer /> } />
+          <Route exact path="/home" element={ <App />} />
+          <Route exact path="/game" element={ <Game />} />
+        </Routes>
+      </BrowserRouter>
+    </PersistGate>
   </Provider>,
   document.getElementById('root')
 );

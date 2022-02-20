@@ -13,9 +13,7 @@
     }
 
     body {
-        background-color: #ffffff;	
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 1em;
         background-image: url("../assets/bg/simple.jpg");
         background-size: cover;
     }
@@ -28,49 +26,41 @@
     }
     
     .menu {
-        top: 0.5vh;
-        padding-bottom: 0vh;
+        position: relative;
+        padding: 0.5vh 0 0.5vh 1vw;
         font-size: 1.2vw;
-        display: inline-block;
         background: #efeff0;
         box-shadow: 0vw 1vw 2vw 0vw rgba(0,0,0,0.3);
         color: white;
         text-shadow: 2px 2px 4px #000000;
-    
+        width: 100vw;
+        z-index: 1;
     }
-
-
-    .game-container {
-        position: absolute;
-        width: 100%;
-        left: 16.5vw;
-        top: 17mm; 
-        height: 85vh;
-        display: grid;
-        --grid2: calc((100% - 1px) / 2);
-        --grid4: calc((100% - 2px) / 4);
-        --grid6: calc((100% - 5px) / 6);
-        --grid8: calc((100% - 7px) / 8);
-        
-        grid-template-columns: 100%;
-
-        @media  screen and (min-width: 480px)  {
-          grid-template-columns: var(--grid2) var(--grid2);
-          }
-        @media  screen and (min-width: 768px)  {
-          grid-template-columns: var(--grid4) var(--grid4) var(--grid4) var(--grid4);
-          }
-        @media  screen and (min-width: 1200px)  {
-          grid-template-columns: var(--grid6) var(--grid6) var(--grid6) var(--grid6) var(--grid6) var(--grid6) ;
-          }
-        @media  screen and (min-width: 1400px)  {
-        grid-template-columns: var(--grid8) var(--grid8) var(--grid8) var(--grid8) var(--grid8) var(--grid8) var(--grid8) var(--grid8);
-        }
-        grid-template-rows: auto ;
-        overflow: auto;
-        
+    .menu label {
+      text-align: left;
+      @media  screen and (min-width: 320px)  {
+        margin-right: 80vw;
+      }
+      @media  screen and (min-width: 768px)  {
+        margin-right: 85vw;
+      }   
+      @media  screen and (min-width: 2500px)  {
+        margin-right: 80vw;
+      } 
+      @media  screen and (min-width: 4000px)  {
+        margin-right: 80vw;
+      }   
     }
-    
+    .menu button {
+      text-align: right;
+      border-color: #c6c7c6;
+      border-radius: 10%;
+      
+    }
+    .menu button:hover {
+      background: rgba(230, 226, 226, 0.829);
+      box-shadow: 0 0.4vw 0.2vw 0 rgb(173, 170, 170);
+    }
     .containerMenu {
         top: 2vh; 
         height: 80vh;
@@ -84,59 +74,6 @@
         @media  screen and (min-width: 768px)  {
           grid-template-columns: var(--grid2) var(--grid2);
           }
-    }
-
-    .category{
-      position:fixed;
-      left: 1vw; 
-      top: 11vh; 
-    }
-
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdownButton {
-      background-color: #5c5c5c;
-      color: white;
-      height: 3vh;
-      width: 6vw;
-      font-size: 1vw;
-      border: none;
-      cursor: pointer;
-      border-radius: 1vw;
-    } 
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #ffffff;
-      width: 7vw ;
-      box-shadow: 0vw 1.5vw 2vw 0vw rgba(0,0,0,0.2);
-      list-style-type: none; 
-      left: 0;
-      padding: 0;
-      margin-left: 0.5vw;
-      z-index: 1;
-    }
-
-    .dropdown-content li {
-      color: black;
-      text-decoration: none;
-      display: block;
-      margin: 0.3vw 0vw 0vw 0vw;
-      font-size: 0.8vw;
-    }
-
-    .dropdown-content li:hover {background-color: #c6c7c6}
-    
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdown:hover .dropbtn {
-      background-color: #726b6b;
     }
 
     .footer {
@@ -153,10 +90,7 @@
         
         @media  screen and (min-width: 768px)  {
           height: 2vh;
-          }
-        @media  screen and (min-width: 1700px)  {
-           height: 2vh;
-          }      
+          }    
       }
        
 /*------------- Columns control ------------**/

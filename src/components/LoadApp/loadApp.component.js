@@ -11,13 +11,13 @@ export class LoadApp extends PureComponent {
     
     render() {
        
-        let { gameList, linkThum } = this.props;
+        let { gameList, linkThum, getURL } = this.props;
    
         return (
             
             gameList.map((key) => (  
                 
-                    <div className="game">
+                    <div className="game" onClick={()=> getURL(key.game_code)}>
                         <img src={ linkThum + key.url_thumb } alt={ key.name } />                
                         <div className='name'>{ key.name } </div>
                         <div className='product'> { key.product } </div>  

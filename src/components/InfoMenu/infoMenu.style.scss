@@ -1,0 +1,23 @@
+* {box-sizing: border-box;}
+.info-container {
+  position: absolute;
+  width: 100vw;
+  margin: 3vh 0 0 3vw;
+  @media  screen and (min-width: 320px)  {}
+  @media  screen and (min-width: 375px)  {}    
+  @media  screen and (min-width: 480px)  {}
+  @media  screen and (min-width: 768px)  {}
+  @media  screen and (min-width: 1000px) {}
+  @media  screen and (min-width: 1400px) {}
+  @media  screen and (min-width: 2000px) {}
+}
+.welcome{
+  color:rgb(75, 78, 78);
+  text-transform: capitalize;
+  width: 10px;
+  height: 10px;
+}
+.name {
+  text-align: justify;
+  color: rgb(100, 102, 101);
+}

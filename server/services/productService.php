@@ -7,23 +7,25 @@ abstract class ProductService{
     public function __construct() { } 
 
     abstract function create();
-    public static function delete($items){
+    public static function delete(){}
+    public static function getUsers(){
+
+        $conn = new connectionDB();
+        $conn->createConnection();
+        $users = []; 
+
+        $query= "SELECT * FROM users";
+        $result=$conn->executeQuery($query);
+    
+        while($row = $result->fetch_assoc()){   
+            array_push($users, $row); // get all server available in DB
+        }
+
+        // Closing the connection with BD
+        $conn->closeConnection();
         
-            // new inst from db
-            $conn = new connectionDB();
-            
-            // my new conexion to db
-            $conn->createConnection();
-        
-           //delete items in massive mode from products the list from functions massdelete
-            
-            $sql_del= "DELETE FROM games WHERE id in ($items)";
-            
-            $conn->executeQuery($sql_del);
-        
-            // Closing the connection with BD
-            $conn->closeConnection();
-        
+        return $users; 
+
     }
     public static function getAllGames($operator_id){
 
@@ -51,45 +53,30 @@ abstract class ProductService{
         return $games; 
 
     }
+    public static function getUrl($game_code){
+
+        $conn = new connectionDB();
+        $conn->createConnection();
+        $url = []; 
+
+        $queryOperator= "SELECT url FROM url_games WHERE game_code='$game_code'";
+        $resultOperator=$conn->executeQuery($queryOperator);
+        $link = $resultOperator->fetch_assoc();
+        array_push($url, $link);
+       
+        //Closing the connection with BD
+        $conn->closeConnection();
+        
+        return $url; 
+
+    }
 }
 
 class products extends ProductService {
 
 
-    public function create(){
-    
-
-            // my new instance of DB
-            $conn = new connectionDB();
-            
-            // Create a new connection with DB
-            $conn->createConnection();
-
-            // registering in db according to the type of the item
-        
-            $sql_insert = "INSERT INTO games (id, info, category) VALUES ($id, '$info', $category)";
-            $conn->executeQuery($sql_insert);
-
-            // Closing the connection with BD
-            $conn->closeConnection();       
-    }   
-    public function update(){
-        // Method to create one dvd in the DB
-   
-               // my new instance of DB
-               $conn = new connectionDB();
-               
-               // Create a new connection with DB
-               $conn->createConnection();
-   
-               // registering in db according to the type of the item
-           
-               $sql_insert = "UPDATE games SET info='$info', category=$category WHERE id=$id";
-               $conn->executeQuery($sql_insert);
-   
-               // Closing the connection with BD
-               $conn->closeConnection();       
-       }  
+    public function create(){}   
+    public function update(){}  
 
 }    
 ?>

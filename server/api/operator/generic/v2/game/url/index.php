@@ -18,7 +18,7 @@ class GameAPI extends api {
         $data = json_decode($dataRaw);
 
         //Variables from request 
-        $operator_id = $data->operator_id;
+        $game_code = $data->game_code;
         
         $code = 200;
         api::responseCode($code);
@@ -38,7 +38,7 @@ class GameAPI extends api {
         }
         else{ 
       
-            $games = ProductService::getAllGames($operator_id);
+            $url = ProductService::getUrl($game_code);
 
             api::responseCode($code);
 
@@ -48,7 +48,7 @@ class GameAPI extends api {
             header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS');
             header("Access-Control-Allow-Headers: X-Requested-With");
             header('P3P: CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"');
-            echo json_encode($games, JSON_PRETTY_PRINT);
+            echo json_encode($url, JSON_PRETTY_PRINT);
         
         }  
     }

@@ -1,52 +1,123 @@
 * {box-sizing: border-box;}
+.game-container {
+  position: absolute;
+  padding-left: 2vw;
+  width: 83vw;
+  left: 16.5vw;
+  top: 17mm; 
+  height: 85vh;
+  display: grid;
+  --grid2: calc((78vw) / 2);
+  --grid4: calc((78vw) / 4);
+  --grid5: calc((78vw) / 5);
+  --grid6: calc((78vw) / 6);
+  --grid8: calc((78vw) / 8);
+  
+  grid-template-columns: 38vw 38vw;
+
+  @media  screen and (min-width: 320px)  {
+    grid-template-columns: 26vw 26vw 26vw;
+    }
+  @media  screen and (min-width: 375px)  {
+    grid-template-columns: 38vw 38vw;
+    }    
+  @media  screen and (min-width: 480px)  {
+    grid-template-columns: var(--grid2) var(--grid2);
+    }
+  @media  screen and (min-width: 768px)  {
+    grid-template-columns: var(--grid4) var(--grid4) var(--grid4) var(--grid4);
+    }
+  @media  screen and (min-width: 1000px)  {
+    grid-template-columns: var(--grid5) var(--grid5) var(--grid5) var(--grid5) var(--grid5)  ;
+    }
+  @media  screen and (min-width: 1400px)  {
+  grid-template-columns: var(--grid6) var(--grid6) var(--grid6) var(--grid6) var(--grid6)  var(--grid6) ;
+  }
+  @media  screen and (min-width: 2000px)  {
+  grid-template-columns: var(--grid8) var(--grid8) var(--grid8) var(--grid8) var(--grid8)  var(--grid8) var(--grid8) var(--grid8);
+  }
+  overflow: auto;
+}
+
 .game{
     position: relative;
     margin: 0.5vw 0.5vw;
     border-style: groove;
-    border-color: #fff;
+    border-color: rgb(182, 174, 174);
     border-radius: 10%;
-    height: 35vh;
-    @media  screen and (min-width: 780px)  {
-      height: 32vh
+    height: 12vh;
+    @media  screen and (min-width: 320px)  {
+      height: 17vh;
+      }
+    @media  screen and (min-width: 375px)  {
+      height: 25vh;
+      }      
+    @media  screen and (min-width: 425px)  {
+      height: 28vh;
+      }
+    @media  screen and (min-width: 768px)  {
+      height: 26vh;
+      }
+    @media  screen and (min-width: 1000px)  {
+      height: 30vh;
       }
     @media  screen and (min-width: 1400px)  {
-      height: 25vh
-    } 
+        height: 23vh;
+      }
+    @media  screen and (min-width: 2000px)  {
+      height: 19vh;
+    }
 }
 .game:hover {
-    box-shadow: 0.5vw 1vw 2vw 0vw rgba(0,0,0);
+    box-shadow: 0vw 0.7vw 2vw 0vw rgba(0,0,0);
     opacity: 10;
-    transition-duration: 0.3s;
+    transition-duration: 0.2s;
+    z-index: 1;
 }
 .game img{
     position: absolute;
     color: #443f3f;
-    border-radius: 10%;
+    border-radius: 10% 10% 0 0;
     width: 100%;
     z-index: -1;
 }
 .game div{
   position: absolute;
+  bottom: 0;
   width: 100%;
+  z-index: -2;
+  border-radius: 0 0 20% 20%;
 }
 .name {
-    background-color: rgb(255, 253, 253);
     color: #0a0a0a;
-    font-size: 0.9vw;
-    padding: 10px;
-    top: 70%;
+    padding: 20px 0 20px 10px;
+    font-size: 70%;
     text-transform: capitalize;
     text-align: left;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+    @media  screen and (max-width: 320px)  {
+      font-size: 35%;
+      padding: 20px 0 20px 10px;
+    }
+    @media  screen and (min-width: 1200px)  {
+      font-size: 100%;
+      padding: 20px 0 20px 10px;
+    }
 }
 .product {
-    background: rgb(252, 251, 251);
     color: #968989;
-		font-size: 0.6vw;
-    padding: 0 0 0 10px;
-    top: 86%;
+    padding: 0 0 0.5vh 10px;
+    font-size: 60%;
     text-transform: uppercase;
     text-align: left;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+    @media  screen and (max-width: 320px)  {
+      font-size: 27%;
+      padding: 20px 0 10px 10px;
+    }
+    @media  screen and (min-width: 1200px)  {
+      font-size: 70%;
+    }
+
+  }
   

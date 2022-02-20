@@ -1,14 +1,20 @@
 
 import { connect } from 'react-redux';
 import { PureComponent } from 'react';
+import { setURL } from '../../store/yologroup/yologroup.actions';
 import LoadApp from './loadApp.component';
+import { Navigate } from "react-router-dom";
 import '../../styles/main.scss';
 
 /** @namespace  YoloGroup/Component/LoadApp/Container/mapStateToProps */
 export const mapStateToProps = (state) => ({
+    id: state.YoloGroupReducer.id,
+    name: state.YoloGroupReducer.name,
+    url: state.YoloGroupReducer.url
 })
 /** @namespace  YoloGroup/Component/LoadApp/Container/mapDispatchToProps */
 export const mapDispatchToProps = (dispatch) => ({
+    setURL: (data) => dispatch(setURL(data))
 });
 /** @namespace  YoloGroup/Component/LoadApp/Container/LoadAppContainer */
 export class LoadAppContainer extends PureComponent {
@@ -16,12 +22,13 @@ export class LoadAppContainer extends PureComponent {
     static defaultProps = {};
     state = {
      gameList:[],
-     linkThum: 'http://localhost/YoloGroup/assets/img/thumb/'   
+     linkThum: 'http://localhost/YoloGroup/assets/img/thumb/',
+     url: null
     }
     constructor(props) {
         super(props)
         
-        this.handleUpdate = this.handleUpdate.bind(this);
+        this.getURL = this.getURL.bind(this);
     }   
     
     async componentDidMount() {
@@ -30,7 +37,7 @@ export class LoadAppContainer extends PureComponent {
     async getData() {
 
         let payload =  {
-            "operator_id": 1
+            "operator_id": this.props.id
         }
         let requestOptions = {    
             method: 'POST',
@@ -57,20 +64,50 @@ export class LoadAppContainer extends PureComponent {
         }
         getList(this);
     } 
-    handleUpdate() {
-        this.getData();
+    async getURL(game_code) {
+        
+        let payload =  {
+            "game_code": game_code
+        }
+        let requestOptions = {    
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            mode: 'cors',
+            body: JSON.stringify(payload)
+
+        };
+        let link = "http://localhost/YoloGroup/server/api/operator/generic/v2/game/url/";
+
+        async function fecthUrl(x) {
+            
+            await fetch(link, requestOptions ) 
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success, the answer from server API is:', data);
+                x.props.setURL(data[0].url)
+            })
+            .catch((error) => {
+                console.error('The data has some errors:', error);
+            });
+        }
+        fecthUrl(this);
     }  
      
     render() {
+        const { url } = this.props;
+        if(url !== null){
+            return <Navigate to="/game" />;
+            
+        }
+
         return (
             <div className='game-container'>
              
                      <LoadApp
+                     getURL = {this.getURL}
                     { ...this.state }
                     { ...this.props }
                     />
-       
-
             </div>
         )
     }

@@ -1,9 +1,20 @@
-export const IS_LOGIN = 'IS_LOGIN';
+export const IS_AUTHENTICATED = 'IS_AUTHENTICATED';
+export const SET_URL = 'SET_URL';
 
 /** @namespace YoloGroup/Store/YoloGroup/YoloGroup/Action/isSubmitted */
-export const isLogin = (login) => ({
-    type: IS_LOGIN,
+export const isAuthenticated = (login, id, name) => ({
+    type: IS_AUTHENTICATED,
     payload: {
-        login
+        login,
+        id,
+        name
+
+    }
+});
+export const setURL = (url) => ({
+    type: SET_URL,
+    payload: {
+        url
+
     }
 });
