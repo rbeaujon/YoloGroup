@@ -25,9 +25,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "users": "json-server --port 3100 --watch ./src/api/users.json",
-    "logs": "json-server --port 3200 --watch ./src/api/logs.json"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

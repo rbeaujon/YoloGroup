@@ -31,27 +31,7 @@ require (__DIR__."/db.php");
             return $games; 
 
     }
-    public static function getAllCategories(){
 
-        $conn = new connectionDB();
-   
-        $conn->createConnection();
-
-        $query= "SELECT * FROM categories";
-        $result=$conn->executeQuery($query);
-        $categories = []; 
-      
-       
-        while($row = $result->fetch_assoc()){
-            array_push($categories, $row); //get all hosting available in DB
-        }
-
-        // Closing the connection with BD
-        $conn->closeConnection();
-
-        return $categories ;
-
-    }
 }
 
 ?>

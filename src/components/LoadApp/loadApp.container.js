@@ -8,8 +8,9 @@ import '../../styles/main.scss';
 
 /** @namespace  YoloGroup/Component/LoadApp/Container/mapStateToProps */
 export const mapStateToProps = (state) => ({
-    id: state.YoloGroupReducer.id,
+    user_id: state.YoloGroupReducer.user_id,
     name: state.YoloGroupReducer.name,
+    ip: state.YoloGroupReducer.ip,
     url: state.YoloGroupReducer.url
 })
 /** @namespace  YoloGroup/Component/LoadApp/Container/mapDispatchToProps */
@@ -29,15 +30,45 @@ export class LoadAppContainer extends PureComponent {
         super(props)
         
         this.getURL = this.getURL.bind(this);
-    }   
-    
+    }    
     async componentDidMount() {
         this.getData();
+        this.postLogs();
     }  
-    async getData() {
-
+    async postLogs(){
+        const { user_id, name, ip } = this.props;
         let payload =  {
-            "operator_id": this.props.id
+            "operator_id": 1,
+            "user_id": user_id,
+            "user_name": name,
+            "user_ip": ip
+
+        }
+        let requestOptions = {    
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            mode: 'cors',
+            body: JSON.stringify(payload)
+
+        };
+        let link = "http://localhost/YoloGroup/server/api/provider/logs/";
+
+        async function postVisit() {
+            
+            await fetch(link, requestOptions ) 
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success, the answer from server API is:', data);
+            })
+            .catch((error) => {
+                console.error('The data has some errors:', error);
+            });
+        }
+        postVisit();
+    }
+    async getData() {
+        let payload =  {
+            "operator_id": 1
         }
         let requestOptions = {    
             method: 'POST',
@@ -92,7 +123,6 @@ export class LoadAppContainer extends PureComponent {
         }
         fecthUrl(this);
     }  
-     
     render() {
         const { url } = this.props;
         if(url !== null){

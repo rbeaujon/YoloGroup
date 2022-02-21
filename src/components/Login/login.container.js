@@ -12,7 +12,7 @@ export const mapStateToProps = (state) => ({
 });
 /** @namespace  YoloGroup/Component/Login/Container/mapDispatchToProps */
 export const mapDispatchToProps = (dispatch) => ({
-    isAuthenticated: (isSubmitted, id, name) => dispatch(isAuthenticated(isSubmitted, id, name))
+    isAuthenticated: (isSubmitted, user_id, name, ip) => dispatch(isAuthenticated(isSubmitted, user_id, name, ip))
 });
 /** @namespace  YoloGroup/Component/Login/Container/LoginContainer */
 export class LoginContainer extends PureComponent {
@@ -22,8 +22,33 @@ export class LoginContainer extends PureComponent {
         super(props)
         
         this.handleLogin = this.handleLogin.bind(this);
+    }   
+    state = {
+        ip: null
+    } 
+    async componentDidMount() {
+        this.getIP();
     }  
+  
+    getIP() {
+        async function myIP(x) {
+            await fetch('https://ipapi.co/json/', { //catch public IP
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json'}
+        })
+        .then(response => response.json())
+        .then(ipData => {
+            console.log(JSON.stringify(ipData, null, 2));
+            x.setState({
+                ip: ipData.ip
+            });
+        });
+        }   
+        myIP(this);
+
+    }
     handleLogin(event){
+        
         event.preventDefault(); //the page doesn't reload
         let { email, pass } = document.forms[0];
         var userEmail = email.value;
@@ -32,7 +57,7 @@ export class LoginContainer extends PureComponent {
 
         //Checking the user in the API nodejs
         async function getUsers(x) {
-
+            
             var requestOptions = {    
             method: 'GET',
             headers: { 'Content-Type': 'application/json'},
@@ -44,10 +69,12 @@ export class LoginContainer extends PureComponent {
                 console.log('Success -> The users list received is:', data);
                 data.map((key) => {
                     if(key.email === userEmail & key.password === userPass){
-                        const id = parseInt(key.id);
+
+                        const user_id = parseInt(key.id);
+                        const myIP =  x.state.ip;
                         userFound = true;
                         return (
-                            x.props.isAuthenticated(true, id, key.name)
+                            x.props.isAuthenticated(true, user_id, key.name, myIP)
                         )
                     }
                     if (userFound === false){
@@ -66,8 +93,10 @@ export class LoginContainer extends PureComponent {
     }
     render(){
         const { isSubmitted } = this.props;
+        
 
             if(isSubmitted === true) {
+            
                 return <Navigate to="/home" />;
             }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 21, 2022 at 08:13 AM
+-- Generation Time: Feb 21, 2022 at 04:10 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.27
 
@@ -66,6 +66,21 @@ INSERT INTO `games` (`url_thumb`, `url_background`, `product`, `platforms`, `nam
 ('ygg_goldenfishtank.jpg', 'ygg_goldenfishtank', 'OneTouch', 'GPL_DESKTOP, GPL_MOBILE', 'Golden Fishtank', 'GoldenFishtank', 1, 0, 1, 'GoldenFishtank', 'AU,US,UK', '2019-02-01', 1, 51, 0, 42, 'MGA', 'eng,spn,deu', 'Vegas,Blue', 'HTML5', 'Achievements'),
 ('png_energoonz.jpg', 'png_energoonz', 'OneTouch', 'GPL_DESKTOP, GPL_MOBILE', 'Energoonz', 'Energoonz', 1, 0, 1, 'Energoonz', 'AU,US,UK', '2019-02-01', 1, 51, 0, 42, 'MGA', 'eng,spn,deu', 'Vegas,Blue', 'HTML5', 'Achievements'),
 ('Cherry-Bomb-Deluxe-icon.jpg', 'Cherry-Bomb-Deluxe-icon', 'OneTouch', 'GPL_DESKTOP, GPL_MOBILE', 'Cherry Bomb Deluxe', 'CherryBombDeluxe', 1, 0, 1, 'CherryBombDeluxe', 'AU,US,UK', '2020-01-01', 1, 50, 0, 45, 'MGA', 'eng,spn,deu', 'Vegas,Blue', 'HTML5', 'Achievements');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logs`
+--
+
+CREATE TABLE `logs` (
+  `id` int(4) NOT NULL,
+  `operator_id` int(4) NOT NULL,
+  `user_id` int(4) NOT NULL,
+  `user_name` varchar(50) NOT NULL,
+  `user_ip` varchar(16) NOT NULL,
+  `date` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -141,6 +156,12 @@ INSERT INTO `users` (`id`, `name`, `password`, `email`) VALUES
 --
 
 --
+-- Indexes for table `logs`
+--
+ALTER TABLE `logs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `operator`
 --
 ALTER TABLE `operator`
@@ -161,6 +182,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `logs`
+--
+ALTER TABLE `logs`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `operator`
