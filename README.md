@@ -7,17 +7,18 @@ The client (gamer), accesses the website game through one operator that verifies
 The operator authenticates him, connects with its provider (API), and shows the game list available.
 The customer interact and select the game, sending this a request to the provider to get the game URL and redirect to the customer to it (game)
 
-API's located in:
-<http://aistica.com> created in PHP and MySql.
+<img src="/assets/diagram/flow.png" width="80%">
+
+### API's located in: <http://aistica.com>
 
 
 Project Hosting on <https://aistica.com/yologroup/>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+<img src="/assets/screenshots/3.png" width="80%">
 <img src="/assets/screenshots/1.png" width="80%">
-<img src="/assets/screenshots/3.png" width="80%">
-<img src="/assets/screenshots/3.png" width="80%">
+<img src="/assets/screenshots/2.png" width="80%">
 <img src="/assets/screenshots/4.png" width="80%">
 <img src="/assets/screenshots/5.png" width="80%">
 
@@ -43,9 +44,20 @@ Open [https://aistica.com/yologroup/server/api/provider/users]
 * [https://aistica.com/yologroup/server/api/operator/url]
 * [https://aistica.com/yologroup/server/api/provider/logs]
 
-## Curl to endpoints
+# Curl to endpoints
 
+### Users
 
- Home
- <http://localhost:3000>
+<img src="/assets/screenshots/users.jpg" width="80%">
 
+### List
+
+<img src="/assets/screenshots/list.jpg" width="80%">
+
+### URL
+
+<img src="/assets/screenshots/url.jpg" width="80%">
+
+### Logs
+
+<img src="/assets/screenshots/logs.jpg" width="80%">
