@@ -9,16 +9,15 @@ The customer interact and select the game, sending this a request to the provide
 
 <img src="/assets/diagram/flow.png" width="80%">
 
-### API's located in: <http://aistica.com>
+## Project Hosting 
+<https://aistica.com/yologroup/>
 
-
-Project Hosting on <https://aistica.com/yologroup/>
 ### Admin
-user: admin@yologroup.com
+user: admin@yologroup.com</br>
 pass: 1234
 
 ### User:
-user: user@yologroup.com
+user: user@yologroup.com</br>
 pass: 1234
 
 
