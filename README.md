@@ -13,6 +13,14 @@ The customer interact and select the game, sending this a request to the provide
 
 
 Project Hosting on <https://aistica.com/yologroup/>
+### Admin
+user: admin@yologroup.com
+pass: 1234
+
+### User:
+user: user@yologroup.com
+pass: 1234
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
