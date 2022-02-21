@@ -7,7 +7,7 @@ import '../../styles/main.scss';
 
 /** @namespace  YoloGroup/Component/Game/Container/mapStateToProps */
 export const mapStateToProps = (state) => ({
-    id: state.YoloGroupReducer.id,
+    user_id: state.YoloGroupReducer.user_id,
     name: state.YoloGroupReducer.name,
     isSubmitted: state.YoloGroupReducer.isSubmitted,
     url: state.YoloGroupReducer.url
@@ -17,7 +17,7 @@ export const mapDispatchToProps = (dispatch) => ({
     isAuthenticated: (isSubmitted) => dispatch(isAuthenticated(isSubmitted)),
     setURL: (data) => dispatch(setURL(data))
 });
-/** @namespace  YoloGroup/Component/Game/Container/GameContainer */
+/** @namespace  YoloGroup/Component/Game/Container/InfoContainer */
 export class InfoContainer extends PureComponent {
     static propTypes = {}
     static defaultProps = {};

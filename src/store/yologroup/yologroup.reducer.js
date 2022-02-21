@@ -2,9 +2,11 @@ import { IS_AUTHENTICATED, SET_URL } from './yologroup.actions';
 
 export const getinitialState = () => ({
     isSubmitted: false,
-    id: null,
+    user_id: null,
+    operator_id: null,
     name: null,
-    url: null
+    url: null,
+    ip: null
 });
 
 /** @namespace  YoloGroup/Store/Yologroup/Yologroup/Reducer */
@@ -20,8 +22,9 @@ export const YoloGroupReducer = (
         return {
             ...state,
             isSubmitted: payload.login,
-            id:  payload.id,
-            name:  payload.name
+            user_id:  payload.id,
+            name:  payload.name,
+            ip: payload.ip
         } 
     case SET_URL:
         return {

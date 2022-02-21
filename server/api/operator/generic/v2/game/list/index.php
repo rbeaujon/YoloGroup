@@ -1,6 +1,6 @@
 <?PHP
  /*
- * API controller to handle all comunication from user Posts data
+ * API controller to handle all comunication 
  */ 
 require (__DIR__."/../../../../../../services/productService.php");
 require (__DIR__."/../../../../../baseApi.php");

@@ -8,7 +8,7 @@ import '../../styles/main.scss';
 
 /** @namespace  YoloGroup/Component/Game/Container/mapStateToProps */
 export const mapStateToProps = (state) => ({
-    id: state.YoloGroupReducer.id,
+    user_id: state.YoloGroupReducer.user_id,
     name: state.YoloGroupReducer.name,
     isSubmitted: state.YoloGroupReducer.isSubmitted,
     url: state.YoloGroupReducer.url

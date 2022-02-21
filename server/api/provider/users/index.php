@@ -1,6 +1,6 @@
 <?PHP
  /*
- * API controller to handle all comunication from user users data
+ * API controller to handle all comunication 
  */ 
 require (__DIR__."/../../../services/productService.php");
 require (__DIR__."/../../baseApi.php");
@@ -12,7 +12,7 @@ class Users extends api {
 
     public function get(){
         $code = 200;
-        $users = ProductService::getUsers(); // Call a public  static method getAll to obtein all users in DB//
+        $users = ProductService::getUsers(); 
 
         if($users == NULL || $users === ""){
 
