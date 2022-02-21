@@ -1,11 +1,14 @@
 # YOLO GROUP ASSIGMENT
 
-Project with Front-End React-Redux and Back-End Nodejs, PHP and Mysql. To manage 2 APIs that shows a lists of posts and categories availables
+Project with Front-End React-Redux and SASS with responsive designs and Back-End (API's) on PHP and Mysql. The following project is the interacting between a game customer for one provider that  
+The following project emulates the interaction between a gamer, the operator, and the games provider.
+The client (gamer), accesses the website game through one operator that verifies the conditions and wallet in its servers.
+The operator authenticates him, connects with its provider (API), and shows the game list available.
+The customer interact and select the game, sending this, a request to the provider to get the game URL and redirect to the customer to it
+
 
 API's located in:
-1.- <http://aistica.com> created in PHP and MySql.
-
-2.- Json-Server running on local server under port 3100 for Users / 3200 por Logs.
+<http://aistica.com> created in PHP and MySql.
 
 Project Hosting on <https://aistica.com/yologroup/>
 
@@ -17,28 +20,20 @@ In the project directory, you can run:
 
 ### `npm run start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view on a browser.
+To view in the browser
+Local [http://localhost:3000]
+Remote [https://aistica.com/yologroup] 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This  the server api in node.js.\
+Open [https://aistica.com/yologroup/server/api/provider/users]
 
-### `npm run users`
+ ## API ENDPOINTS
 
-This command launchs the server api in node.js.\
-Open [http://localhost:3100](http://localhost:3100)
+* [https://aistica.com/yologroup/server/api/provider/users]
 
-### `npm run logs`
+* [https://aistica.com/yologroup/server/api/operator/list]
+* [https://aistica.com/yologroup/server/api/operator/url]
 
-This command launchs the server api in node.js.\
-Open [http://localhost:3200](http://localhost:3200)
-
- Resources
-
-* <http://localhost:3100/users>.
-
-* <http://localhost:3200/logs>
-
-  Home
-  <http://localhost:3000>
+ Home
+ <http://localhost:3000>
 
