@@ -40,16 +40,16 @@ Local [http://localhost:3000]
 
 Remote [https://aistica.com/yologroup]
 
-This  the server api in node.js.\
-Open [https://aistica.com/yologroup/server/api/provider/users]
-
  ## API ENDPOINTS
 
+### OPERATOR
 * [https://aistica.com/yologroup/server/api/provider/users]
+* [https://aistica.com/yologroup/server/api/provider/logs]
 
+### PROVIDER
 * [https://aistica.com/yologroup/server/api/operator/list]
 * [https://aistica.com/yologroup/server/api/operator/url]
-* [https://aistica.com/yologroup/server/api/provider/logs]
+
 
 # Curl to endpoints
 
