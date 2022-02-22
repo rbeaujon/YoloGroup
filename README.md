@@ -47,8 +47,8 @@ Remote [https://aistica.com/yologroup]
 * [https://aistica.com/yologroup/server/api/provider/logs]
 
 ### PROVIDER
-* [https://aistica.com/yologroup/server/api/operator/list]
-* [https://aistica.com/yologroup/server/api/operator/url]
+* [https://aistica.com/yologroup/server/api/operator/generic/v2/game/list/]
+* [https://aistica.com/yologroup/server/api/operator/generic/v2/game/url/]
 
 
 # Curl to endpoints
