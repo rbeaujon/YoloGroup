@@ -71,7 +71,7 @@ export class LoginContainer extends PureComponent {
             mode: 'cors',
             body: JSON.stringify(payload)
         };
-        await fetch('http://aistica.com/yologroup/server/api/provider/users/', requestOptions ) 
+        await fetch('https://aistica.com/yologroup/server/api/provider/users/', requestOptions ) 
             .then(response => response.json())
             .then(data => {
                 console.log('Success -> The users list received is:', data);
