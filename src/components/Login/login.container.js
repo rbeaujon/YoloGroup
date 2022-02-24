@@ -59,24 +59,30 @@ export class LoginContainer extends PureComponent {
 
         //Checking the user in the API nodejs
         async function getUsers(x) {
+
+            let payload =  {
+                "userEmail": userEmail,
+                "userPass": userPass
+            }
             
             var requestOptions = {    
-            method: 'GET',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json'},
-            mode: 'cors'
+            mode: 'cors',
+            body: JSON.stringify(payload)
         };
-        await fetch('https://aistica.com/yologroup/server/api/provider/users/', requestOptions ) 
+        await fetch('http://aistica.com/yologroup/server/api/provider/users/', requestOptions ) 
             .then(response => response.json())
             .then(data => {
                 console.log('Success -> The users list received is:', data);
-                data.map((key) => {
-                    if(key.email === userEmail & key.password === userPass){
 
-                        const user_id = parseInt(key.id);
+                    if(data != null){
+
+                        const user_id = parseInt(data['id']);
                         const myIP =  x.state.ip;
                         userFound = true;
                         return (
-                            x.props.isAuthenticated(true, user_id, key.name, myIP)
+                            x.props.isAuthenticated(true, user_id, data['name'], myIP)
                         )
                     }
                     if (userFound === false){
@@ -84,11 +90,10 @@ export class LoginContainer extends PureComponent {
                             x.props.isAuthenticated(false),
                             x.props.setError('login')
                         )
-                    }           
-                })
+                    }
             })
             .catch((error) => {
-                console.error('fail fetching the users, you has errors:', error);
+                console.error('fail fetching the users, you have errors:', error);
             });
         }
         getUsers(this);
