@@ -1,18 +1,20 @@
 import { connect } from 'react-redux';
 import { PureComponent } from 'react';
 import { Navigate } from "react-router-dom";
-import { isAuthenticated } from '../../store/yologroup/yologroup.actions';
+import { isAuthenticated, setError } from '../../store/yologroup/yologroup.actions';
 import Login from './login.component';
 import  './login.style.scss';
 
 
 /** @namespace  YoloGroup/Component/Login/Container/mapStateToProps */
 export const mapStateToProps = (state) => ({
-    isSubmitted: state.YoloGroupReducer.isSubmitted
+    isSubmitted: state.YoloGroupReducer.isSubmitted,
+    error: state.YoloGroupReducer.error
 });
 /** @namespace  YoloGroup/Component/Login/Container/mapDispatchToProps */
 export const mapDispatchToProps = (dispatch) => ({
-    isAuthenticated: (isSubmitted, user_id, name, ip) => dispatch(isAuthenticated(isSubmitted, user_id, name, ip))
+    isAuthenticated: (isSubmitted, user_id, name, ip) => dispatch(isAuthenticated(isSubmitted, user_id, name, ip)),
+    setError: (login) => dispatch(setError(login))
 });
 /** @namespace  YoloGroup/Component/Login/Container/LoginContainer */
 export class LoginContainer extends PureComponent {
@@ -29,7 +31,7 @@ export class LoginContainer extends PureComponent {
     async componentDidMount() {
         this.getIP();
     }  
-  
+    
     getIP() {
         async function myIP(x) {
             await fetch('https://ipapi.co/json/', { //catch public IP
@@ -63,7 +65,7 @@ export class LoginContainer extends PureComponent {
             headers: { 'Content-Type': 'application/json'},
             mode: 'cors'
         };
-        await fetch('http://localhost/YoloGroup/server/api/provider/users/', requestOptions ) 
+        await fetch('https://aistica.com/yologroup/server/api/provider/users/', requestOptions ) 
             .then(response => response.json())
             .then(data => {
                 console.log('Success -> The users list received is:', data);
@@ -79,7 +81,8 @@ export class LoginContainer extends PureComponent {
                     }
                     if (userFound === false){
                         return (
-                            x.props.isAuthenticated(false)
+                            x.props.isAuthenticated(false),
+                            x.props.setError('login')
                         )
                     }           
                 })
@@ -96,7 +99,7 @@ export class LoginContainer extends PureComponent {
         
 
             if(isSubmitted === true) {
-            
+                this.props.setError('submitted')
                 return <Navigate to="/home" />;
             }
 
@@ -105,6 +108,7 @@ export class LoginContainer extends PureComponent {
                 <div id="login" >
                     <Login
                     { ...this.state }
+                    { ...this.props }
                     handleLogin = { this.handleLogin }
                     />
                 </div> 

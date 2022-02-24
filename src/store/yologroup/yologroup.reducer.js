@@ -1,4 +1,4 @@
-import { IS_AUTHENTICATED, SET_URL } from './yologroup.actions';
+import { IS_AUTHENTICATED, SET_URL, SET_ERROR } from './yologroup.actions';
 
 export const getinitialState = () => ({
     isSubmitted: false,
@@ -6,7 +6,8 @@ export const getinitialState = () => ({
     operator_id: null,
     name: null,
     url: null,
-    ip: null
+    ip: null,
+    error: null
 });
 
 /** @namespace  YoloGroup/Store/Yologroup/Yologroup/Reducer */
@@ -30,7 +31,21 @@ export const YoloGroupReducer = (
         return {
             ...state,
             url: payload.url
-        }           
+        }  
+    case SET_ERROR:
+        if(payload.error === 'login'){
+            return {
+                ...state,
+                error: 'Login error, check your credentials and try again'
+            }     
+        }
+        if(payload.error === 'submitted'){
+            return {
+                ...state,
+                error: ''
+            }     
+        }
+              
     // eslint-disable-next-line no-fallthrough
     default:
             return state;

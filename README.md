@@ -38,9 +38,23 @@ Open [https://aistica.com/yologroup/server/api/provider/users]
 * [https://aistica.com/yologroup/server/api/operator/list]
 * [https://aistica.com/yologroup/server/api/operator/url]
 * [https://aistica.com/yologroup/server/api/provider/logs]
+ 
+# Curl to endpoints
 
-## Curl to endpoints
+### Users
 
- Home
- <http://localhost:3000>
+<img src="/assets/screenshots/users.jpg" width="80%">
+
+### List
+
+<img src="/assets/screenshots/list.jpg" width="80%">
+
+### URL
+
+<img src="/assets/screenshots/url.jpg" width="80%">
+
+### Logs
+
+<img src="/assets/screenshots/logss.jpg" width="80%">
+
 

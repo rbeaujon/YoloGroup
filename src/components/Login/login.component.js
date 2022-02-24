@@ -8,7 +8,7 @@ export class Login extends PureComponent {
     static defaultProps = {};
     render() {
        
-        let { handleLogin } = this.props;
+        let { handleLogin, error } = this.props;
    
         return (
    
@@ -22,8 +22,12 @@ export class Login extends PureComponent {
                     <div>
                         <input type="password" name="pass" placeholder="Enter Password" required />
                     </div>
+
                     <div className="button">
                         <input type="submit" />
+                    </div>
+                    <div className='error'>
+                        <p>{error}</p>
                     </div>
                 </form>
             </div> 
