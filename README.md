@@ -7,7 +7,7 @@ The client (gamer), accesses the website game through one operator that verifies
 The operator authenticates him, connects with its provider (API), and shows the game list available.
 The customer interact and select the game, sending this a request to the provider to get the game URL and redirect to the customer to it (game)
 
-<img src="/assets/diagram/flow.png" width="80%">
+<img src="/assets/diagram/flow.png" width="100%">
 
 ## Project Hosting 
 <https://aistica.com/yologroup/>
