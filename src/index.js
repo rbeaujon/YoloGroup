@@ -8,7 +8,7 @@ import {
 import { PersistGate } from 'redux-persist/integration/react'
 import LoginContainer from './components/Login';
 import Game from './components/Game';
-import App from './App'
+import App from './App';
 import { Provider } from 'react-redux';
 import { store, persistor } from './store/index';
 
