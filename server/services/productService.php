@@ -8,23 +8,27 @@ abstract class ProductService{
 
     abstract function create($operator_id,$user_id,$user_name,$user_ip,$date);
     public static function delete(){}
-    public static function getUsers(){
+    public static function getSession($login, $pass){
 
         $conn = new connectionDB();
         $conn->createConnection();
-        $users = []; 
+        $session = null; 
 
-        $query= "SELECT * FROM users";
+        $query= "SELECT * FROM users WHERE email='$login' and password='$pass' ";
         $result=$conn->executeQuery($query);
     
-        while($row = $result->fetch_assoc()){   
-            array_push($users, $row); // get all server available in DB
+        $session = $result->fetch_assoc();
+        if($session){
+            // return ( [$session[0]->id, $session[0]->name] );
+            return $session;
         }
+        else{
+            return $session;
+        }
+           
 
         // Closing the connection with BD
         $conn->closeConnection();
-        
-        return $users; 
 
     }
     public static function getAllGames($operator_id){

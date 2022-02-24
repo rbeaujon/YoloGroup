@@ -40,21 +40,19 @@ Local [http://localhost:3000]
 
 Remote [https://aistica.com/yologroup]
 
- ## API ENDPOINTS
+## API ENDPOINTS
 
 ### OPERATOR
 * [https://aistica.com/yologroup/server/api/provider/users]
 * [https://aistica.com/yologroup/server/api/provider/logs]
- 
+
 # Curl to endpoints
 
 ### PROVIDER
 * [https://aistica.com/yologroup/server/api/operator/generic/v2/game/list/]
 * [https://aistica.com/yologroup/server/api/operator/generic/v2/game/url/]
 
-
 # Curl to endpoints
-
 
 ### Users
 
@@ -69,6 +67,5 @@ Remote [https://aistica.com/yologroup]
 <img src="/assets/screenshots/url.jpg" width="80%">
 
 ### Logs
-
 
 <img src="/assets/screenshots/logs.jpg" width="80%">
