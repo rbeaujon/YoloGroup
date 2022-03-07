@@ -23,7 +23,7 @@ export class LoadAppContainer extends PureComponent {
     static defaultProps = {};
     state = {
      gameList:[],
-     linkThum: 'https://aistica.com/yologroup/assets/img/thumb/',
+     linkThum: 'http://localhost/YoloGroup/assets/img/thumb/',
      url: null
     }
     constructor(props) {
@@ -51,7 +51,7 @@ export class LoadAppContainer extends PureComponent {
             body: JSON.stringify(payload)
 
         };
-        let link = "https://aistica.com/yologroup/server/api/provider/logs/";
+        let link = "http://localhost/YoloGroup/server/operator/api/logs/";
 
         async function postVisit() {
             
@@ -77,7 +77,7 @@ export class LoadAppContainer extends PureComponent {
             body: JSON.stringify(payload)
 
         };
-        let link = "https://aistica.com/yologroup/server/api/operator/generic/v2/game/list/";
+        let link = "http://localhost/YoloGroup/server/provider/api/generic/v2/game/list/";
 
         async function getList (x) {
             
@@ -107,7 +107,7 @@ export class LoadAppContainer extends PureComponent {
             body: JSON.stringify(payload)
 
         };
-        let link = "https://aistica.com/yologroup/server/api/operator/generic/v2/game/url/";
+        let link = "http://localhost/YoloGroup/server/provider/api/generic/v2/game/url/";
 
         async function fecthUrl(x) {
             

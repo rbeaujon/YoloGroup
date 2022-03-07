@@ -3,6 +3,7 @@ import { PureComponent } from 'react';
 import { Navigate } from "react-router-dom";
 import { isAuthenticated, setError } from '../../store/yologroup/yologroup.actions';
 import Login from './login.component';
+import  checkCookie  from '../../feed/cookies';
 import  './login.style.scss';
 
 
@@ -71,16 +72,17 @@ export class LoginContainer extends PureComponent {
             mode: 'cors',
             body: JSON.stringify(payload)
         };
-        await fetch('https://aistica.com/yologroup/server/api/provider/users/', requestOptions ) 
+        await fetch('http://localhost/YoloGroup/server/operator/api/sessions/', requestOptions ) 
             .then(response => response.json())
             .then(data => {
-                console.log('Success -> The users list received is:', data);
+                console.log('Successful Login:', data);
 
                     if(data != null){
-
+                        const token = data['token'];
                         const user_id = parseInt(data['id']);
                         const myIP =  x.state.ip;
-                        userFound = true;
+                        userFound = true;   
+                        checkCookie(token);
                         return (
                             x.props.isAuthenticated(true, user_id, data['name'], myIP)
                         )
