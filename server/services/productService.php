@@ -1,6 +1,9 @@
 <?PHP 
-
+declare(strict_types=1);
+require_once(__DIR__."/../../vendor/autoload.php");
+use Firebase\JWT\JWT;
 require (__DIR__."/db.php"); 
+
 
 abstract class ProductService{
  
@@ -18,19 +21,42 @@ abstract class ProductService{
         $result=$conn->executeQuery($query);
     
         $session = $result->fetch_assoc();
+        //$token = bin2hex(openssl_random_pseudo_bytes(64));
+       // $session["token"] = "$token";
+       
         if($session){
-            // return ( [$session[0]->id, $session[0]->name] );
-            return $session;
+            $id = $session['id'];
+            $name = $session['name'];
+            $key = "ThisOneIsMyPersonalKeyJWT";
+            $time = time();
+            $payload = array(
+                "iat" => $time,
+                "exp" => $time + (60*60*24), //Min * / Seg * Days
+                "payload" => [
+                    "id" => $id
+                ]
+            );
+            $jwt = JWT::encode($payload, $key, 'HS256');
+            $date = date("d/m/Y");
+            $session["jwt"] = "$jwt";
+    
+            $query= "INSERT INTO `sessions` (`user_id`, `token`, `date`) VALUES ($id, '$jwt', '$date')";
+            $conn->executeQuery($query);
+        
+            // Closing the connection with BD
+            $conn->closeConnection();
+            return $session;        
         }
         else{
-            return $session;
+            return "Error";
         }
-           
+       
 
         // Closing the connection with BD
         $conn->closeConnection();
 
     }
+   
     public static function getAllGames($operator_id){
 
         $conn = new connectionDB();
@@ -82,7 +108,6 @@ abstract class ProductService{
 
 class products extends ProductService {
 
-
     public function create($operator_id,$user_id,$user_name,$user_ip,$date){
         // Method to create one dvd in the DB
 
@@ -100,7 +125,6 @@ class products extends ProductService {
             // Closing the connection with BD
             $conn->closeConnection(); 
     }   
-    public function update(){}  
+} 
 
-}    
 ?>

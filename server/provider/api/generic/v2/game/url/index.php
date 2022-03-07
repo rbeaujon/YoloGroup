@@ -3,7 +3,7 @@
  * API controller to handle all comunication 
  */ 
 require (__DIR__."/../../../../../../services/productService.php");
-require (__DIR__."/../../../../../baseApi.php");
+require (__DIR__."/../../../../../../baseApi.php");
 
 
 class GameAPI extends api {
